@@ -1,16 +1,21 @@
 package com.inventory.controller;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.springframework.http.ResponseEntity;
+
+import com.inventory.model.Item;
 
 public class InventoryControllerTest {
-	
+
 	@Test
 	public void shouldReturnTest() {
+		int itemId = 1002000;
 		InventoryController controller = new InventoryController();
-		String response = controller.home();
-		assertEquals("Test", response);
+		ResponseEntity<Item> itemResponseEntity = controller.getItem(itemId);
+		Item item = itemResponseEntity.getBody();
+		assertEquals(item.getItemId(), itemId);
 	}
 
 }

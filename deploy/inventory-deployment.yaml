@@ -1,4 +1,4 @@
-apiVersion: api/inventory
+apiVersion: api/v1/inventory
 kind: Deployment
 metadata:
   name: inventory-service-deployment
